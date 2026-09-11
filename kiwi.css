@@ -1,0 +1,470 @@
+/* @theme kiwi */
+
+@import 'default';
+
+:root {
+  --color-background: #fff;
+  --color-foreground: #444;
+  --color-heading: #000;
+  --color-em: #000;
+  --color-strong: #000;
+  --color-blockquote: #888;
+  --color-link: #08f;
+  --color-readable-background: #000;
+
+  --muted-transparency: 50%;
+
+  --code-bg: #f8f8f8;
+  --code-bg-inline: #f2f2f2;
+  --code-fg: #5c6166;
+  --code-fg-inline: #814db6;
+  --code-tag: #55b4d4;
+  --code-func: #f2ae49;
+  --code-entity: #399ee6;
+  --code-string: #86b300;
+  --code-regexp: #4cbf99;
+  --code-markup: #f07171; 
+  --code-keyword: #fa8d3e;
+  --code-special: #e6ba7e;
+  --code-comment: #787b8088;
+  --code-constant: #a37acc;
+  --code-operator: #ed9366;
+  --code-error: #e65050;
+  --code-vcs-added: #6cbf43;
+  --code-vcs-modified: #478acc;
+  --code-vcs-removed: #ff7383;
+
+  /* --code-bg: #242936;
+  --code-bg-inline: #242936;
+  --code-fg: #cccac2;
+  --code-fg-inline: #dfbfff;
+  --code-tag: #5ccfe6;
+  --code-func: #ffd173;
+  --code-entity: #73d0ff;
+  --code-string: #d5ff80;
+  --code-regexp: #95e6cb;
+  --code-markup: #f28779;
+  --code-keyword: #ffad66;
+  --code-special: #ffdfb3;
+  --code-comment: #b8cfe688;
+  --code-constant: #dfbfff;
+  --code-operator: #f29e74;
+  --code-error: #ff6666;
+  --code-vcs-added: #87d96c;
+  --code-vcs-modified: #80bfff;
+  --code-vcs-removed: #f27983; */
+
+  --font-family-normal: 'inter variable', 'noto sans cjk kr', 'noto sans cjk jp', sans-serif;
+  --font-family-mono: 'cascadia code nf', 'd2coding ligature', monospace;
+}
+
+section {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+
+  font-family: var(--font-family-normal);
+  font-feature-settings: "ss04" 1, "ss03" 1;
+  /* ss02: disambiguation, ss03: round punctuation */
+
+  align-content: start;
+  font-size: 20pt;
+  padding: 2.5rem;
+}
+
+:is(h1,h2,h3,h4,h5,h6) {color: var(--color-heading);}
+
+h1 { font-size: 2rem;    font-weight: 700; font-variation-settings: "wght" 700;}
+h2 { font-size: 1.5rem;  font-weight: 700; font-variation-settings: "wght" 700;}
+h3 { font-size: 1.25rem; font-weight: 700; font-variation-settings: "wght" 700;}
+h4 { font-size: 1rem;    font-weight: 700; font-variation-settings: "wght" 700;}
+h5 { font-size: 1rem;    font-weight: 700; font-variation-settings: "wght" 700;}
+h6 { font-size: 1rem;    font-weight: 700; font-variation-settings: "wght" 700;}
+
+
+:is(h1,h2,h3,h4,h5,h6) strong {
+  color: var(--color-strong);
+}
+
+em {
+  color: var(--color-em);
+}
+
+strong {
+  color: var(--color-strong);
+}
+
+em strong {
+  color: rgb(from var(--color-foreground) R G B / var(--muted-transparency));
+  font-weight: normal;
+  font-style: normal;
+
+  a {
+    color: rgb(from var(--color-link) R G B / var(--muted-transparency));
+  }
+
+  code {
+    color: rgb(from var(--code-fg-inline) R G B / var(--muted-transparency));
+    background-color: rgb(from var(--code-bg-inline) R G B / var(--muted-transparency));
+  }
+}
+
+a {
+  color: var(--color-link);
+}
+
+a code {
+  color: var(--color-link);
+}
+
+blockquote {
+  color: var(--color-blockquote);
+  /* border: 2pt solid var(--color-blockquote); */
+  /* padding: 1rem; */
+  /* text-align: center; */
+  font-style: italic;
+  border-left: 4pt solid var(--color-blockquote);
+  padding-left: 1rem;
+}
+
+img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+}
+
+code {
+  background-color: var(--code-bg-inline);
+  color: var(--code-fg-inline);
+  font-family: var(--font-family-mono);
+  font-feature-settings: "ss01" 1;
+  /* ss01: cursive italics */
+  font-weight: 350;
+  font-variation-settings: "wght" 350;
+
+  font-size: 0.75rem;
+}
+
+pre {
+  margin: 1rem 0;
+  border: unset;
+  background-color: var(--code-bg);
+}
+
+pre code {
+  background-color: transparent;
+  color: var(--code-fg);
+  line-height: 1.2rem;
+  font-size: unset;
+}
+
+
+section.title {
+  align-content: center;
+}
+
+section.readability {
+  & > :is(h1, h2, h3, h4, h5, h6, p, blockquote) {
+    width: fit-content;
+    line-height: 1em;
+    padding: 0.25rem;
+    background-color: var(--color-readable-background);
+  }
+}
+
+section.center {
+  :not(h1, h2, h3, h4, h5, h6 pre) {
+    text-align: center;
+  }
+}
+
+section.mono {
+  font-family: var(--font-family-mono);
+  font-feature-settings: "ss01" 1;
+  font-weight: 350;
+  font-variation-settings: "wght" 350;
+
+  h1, h2, h3, h4, h5, h6, strong {
+    font-weight: 700;
+    font-variation-settings: "wght" 700;
+  }
+}
+
+section.references {
+  font-size: 12pt;
+}
+
+footer, section::after {
+  font-size: 14pt;
+  opacity: var(--muted-transparency);
+}
+
+section::after {
+  font-feature-settings: "tnum" 1;
+}
+
+
+
+.hljs
+{
+background-color: var(--code-bg);
+}
+
+.hljs-keyword /* keyword in a regular Algol-style language */
+{
+color: var(--code-keyword);
+}
+
+.hljs-built_in /* built-in or library object (constant, class, function) */
+{
+color: var(--code-func);
+}
+
+.hljs-type /* data type (in a language with syntactically significant types) (string, int, array, etc.) */
+{
+color: var(--code-entity);
+}
+
+.hljs-literal /* special identifier for a built-in value (true, false, null, etc.) */
+{
+color: var(--code-constant);
+}
+
+.hljs-number /* number, including units and modifiers, if any. */
+{
+color: var(--code-constant)
+}
+
+.hljs-operator /* operators: +, -, >>, |, == */
+{
+color: var(--code-operator);
+}
+
+.hljs-punctuation /* aux. punctuation that should be subtly highlighted (parentheses, brackets, etc.) */
+{
+color: var(--code-markup);
+}
+
+.hljs-property /* object property obj.prop1.prop2.value */
+{
+color: var(--code-fg);
+}
+
+.hljs-regexp /* literal regular expression */
+{
+color: var(--code-regexp);
+}
+
+.hljs-string /* literal string, character */
+{
+color: var(--code-string);
+}
+
+.hljs-char.escape /* an escape character such as \n*/
+{
+color: var(--code-regexp);
+}
+
+.hljs-subst /* parsed section inside a literal string */
+{
+color: var(--code-fg);
+}
+
+.hljs-symbol /* symbolic constant, interned string, goto label */
+{
+color: var(--code-constant);
+}
+
+.hljs-class /* deprecated You probably want title.class */
+{
+color: var(--code-entity);
+}
+
+.hljs-function /* deprecated You probably want title.function */
+{
+color: var(--code-func);
+}
+
+.hljs-variable /* variables */
+{
+color: var(--code-fg);
+}
+
+.hljs-variable.language /* variable with special meaning in a language, e.g.: this, window, super, self, etc. */
+{
+color: var(--code-fg);
+}
+
+.hljs-variable.constant /* variable that is a constant value, ie MAX_FILES */
+{
+color: var(--code-fg);
+}
+
+.hljs-title /* name of a class or a function */
+{
+color: var(--code-func);
+}
+
+.hljs-title.class /* name of a class (interface, trait, module, etc) */
+{
+color: var(--code-entity);
+}
+
+.hljs-title.class.inherited /* name of class being inherited from, extended, etc. */
+{
+color: var(--code-entity);
+}
+
+.hljs-title.function /* name of a function */
+{
+color: var(--code-func);
+}
+
+.hljs-title.function.invoke /* name of a function (when being invoked) */
+{
+color: var(--code-func);
+}
+
+.hljs-params /* block of function arguments (parameters) at the place of declaration */
+{
+color: var(--code-constant);
+}
+
+.hljs-comment /* comments */
+{
+color: var(--code-comment);
+font-style: italic;
+}
+
+.hljs-doctag /* documentation markup within comments, e.g. @params */
+{
+color: var(--code-tag);
+}
+
+.hljs-meta /* flags, modifiers, annotations, processing instructions, preprocessor directives, etc */
+{
+color: var(--code-keyword);
+}
+
+.hljs-meta.prompt /* REPL or shell prompts or similar */{
+color: var(--code-fg);
+}
+
+.hljs-meta keyword /* a keyword inside a meta block (note this is nested, not subscoped) */
+{
+color: var(--code-fg);
+}
+
+.hljs-meta string /* a string inside a meta block (note this is nested, not subscoped) */
+{
+color: var(--code-fg);
+}
+
+.hljs-section /* heading of a section in a config file, heading in text markup */
+{
+color: var(--code-string);
+font-weight: 700;
+font-variation-settings: "wght" 700;
+}
+
+.hljs-tag /* XML/HTML tag */
+{
+color: var(--code-tag);
+}
+
+.hljs-name /* name of an XML tag, the first word in an s-expression */
+{
+color: var(--code-tag);
+}
+
+.hljs-attr /* name of an attribute with no language defined semantics (keys in JSON, setting names in .ini), also sub-attribute within another highlighted object, like XML tag */
+{
+color: var(--code-entity);
+}
+
+.hljs-attribute /* name of an attribute followed by a structured value part, like CSS properties */
+{
+color: var(--code-func);
+}
+
+.hljs-bullet /* list item bullet */
+{
+color: var(--code-string);
+}
+
+.hljs-code /* code block */
+{
+color: var(--code-constant);
+}
+
+.hljs-emphasis /* emphasis */
+{
+color: var(--code-markup);
+font-style: italic;
+}
+
+.hljs-strong /* strong emphasis */
+{
+color: var(--code-markup);
+font-weight: 700;
+font-variation-settings: "wght" 700;
+}
+
+.hljs-formula /* mathematical formula */
+{
+color: var(--code-regexp);
+}
+
+.hljs-link /* hyperlink */
+{
+color: var(--code-entity);
+}
+
+.hljs-quote /* quotation or blockquote */
+{
+color: var(--code-regexp);
+font-style: italic;
+}
+
+.hljs-selector-tag /* tag selector */
+{
+color: var(--code-entity);
+}
+
+.hljs-selector-id /* #id selector */
+{
+color: var(--code-func);
+}
+
+.hljs-selector-class /* .class selector */
+{
+color: var(--code-func);
+}
+
+.hljs-selector-attr /* [attr] selector */
+{
+color: var(--code-func);
+}
+
+.hljs-selector-pseudo /* :pseudo selector */
+{
+color: var(--code-func);
+}
+
+.hljs-template-tag /* tag of a template language */
+{
+color: var(--code-fg);
+}
+
+.hljs-template-variable /* variable in a template language */
+{
+color: var(--code-fg);
+}
+
+.hljs-addition /* added or changed line */
+{
+background-color: var(--code-vcs-added);
+}
+
+.hljs-deletion /* deleted line */
+{
+background-color: var(--code-vcs-removed);
+}
