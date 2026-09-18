@@ -4,7 +4,7 @@
 
 :root {
   --color-background: #fff;
-  --color-foreground: #000;
+  --color-foreground: #111;
   --color-heading: #000;
   --color-em: #000;
   --color-strong: #000;
@@ -55,6 +55,7 @@
   --code-vcs-removed: #f27983; */
 
   --font-family-normal: 'inter variable', 'noto sans cjk kr', 'noto sans cjk jp', sans-serif;
+  /* --font-family-normal: 'Times new roman', 'noto serif cjk kr', 'noto serif cjk jp', serif; */
   --font-family-mono: 'cascadia code nf', 'd2coding ligature', monospace;
 }
 
@@ -68,7 +69,7 @@ section {
 
   align-content: start;
   font-size: 20pt;
-  padding: 2.5rem;
+  padding: 50px;
 }
 
 :is(h1,h2,h3,h4,h5,h6) {color: var(--color-heading);}
@@ -194,6 +195,17 @@ section.references {
 
 footer, section::after {
   font-size: 14pt;
+  opacity: var(--muted-transparency);
+}
+
+header {
+  text-align: right;
+  /* position: absolute;
+  top: 30px;
+  right: 30px; */
+  width: 1230px;
+  padding: 0;
+  margin: 0;
   opacity: var(--muted-transparency);
 }
 
